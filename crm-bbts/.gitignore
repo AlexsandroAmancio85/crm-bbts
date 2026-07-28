@@ -1,0 +1,10 @@
+target/
+data/
+*.log
+logs/*
+!logs/.gitkeep
+uploads/xls/*
+!uploads/xls/.gitkeep
+.idea/
+*.iml
+.DS_Store

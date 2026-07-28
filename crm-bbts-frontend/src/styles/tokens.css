@@ -1,0 +1,57 @@
+:root {
+  /* === Color: "Trilha da Safra" palette ===
+     Parchment field paper, forest canopy, harvest amber, soil. */
+  --bg-field: #F6F1E4;          /* page background — dried-husk parchment */
+  --bg-surface: #FFFEFA;        /* cards / panels */
+  --bg-surface-raised: #FFFFFF;
+  --ink-deep: #1E2A18;          /* primary text — near-black forest */
+  --ink-soft: #4B5A40;          /* secondary text */
+  --ink-faint: #8B9580;         /* tertiary / placeholder text */
+
+  --canopy-900: #16241A;        /* sidebar / deep brand */
+  --canopy-700: #25402B;
+  --canopy-500: #3C6140;        /* primary actions */
+  --canopy-300: #7A9B6E;        /* sage, soft surfaces */
+  --canopy-100: #E3EAD9;        /* tinted backgrounds */
+
+  --soil-700: #4A3826;          /* dividers, secondary ink on light */
+  --soil-300: #C9B89B;
+
+  --amber-600: #B9791E;         /* harvest gold — accent / CTA */
+  --amber-500: #C98A2C;
+  --amber-200: #F0D7A0;
+  --amber-100: #FAEDD2;
+
+  --status-vendido: #2F7D45;
+  --status-vendido-bg: #E1F1E3;
+  --status-indisponivel: #B23A2E;
+  --status-indisponivel-bg: #FBE6E2;
+  --status-contatado: #B9791E;
+  --status-contatado-bg: #FBEED4;
+  --status-pendente: #5C6B7A;
+  --status-pendente-bg: #E7EBEE;
+
+  --border-hairline: #DCD3BD;
+  --border-strong: #B7AC8E;
+
+  /* === Type === */
+  --font-display: 'Fraunces', 'Iowan Old Style', serif;
+  --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.875rem;
+  --fs-2xl: 2.5rem;
+
+  /* === Layout === */
+  --sidebar-w: 264px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --shadow-card: 0 1px 2px rgba(30, 42, 24, 0.06), 0 4px 16px rgba(30, 42, 24, 0.06);
+  --shadow-pop: 0 8px 28px rgba(22, 36, 26, 0.18);
+}

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/crmbbts}
+    username: ${DB_USERNAME:crmbbts}
+    password: ${DB_PASSWORD:changeme}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    br.com.bbts.crm: INFO

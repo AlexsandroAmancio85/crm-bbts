@@ -1,0 +1,55 @@
+spring:
+  ai:
+    google:
+      api-key: ${GEMINI_API_KEY}
+      api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=
+  application:
+    name: crm-bbts
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  
+  gemini:
+    api-key: ${GEMINI_API_KEY}
+  
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+crm:
+  jwt:
+    secret: ${JWT_SECRET:troque-esta-chave-em-producao-minimo-256-bits-1234567890}
+    expiration-ms: ${JWT_EXPIRATION_MS:28800000} # 8h
+  upload:
+    diretorio: ${UPLOAD_DIR:uploads/xls}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173}
+  integracao:
+    cpf:
+      url: ${CRF_API_URL:}
+      token: ${CRF_API_TOKEN:}
+    dataprev:
+      url: ${DATAPREV_API_URL:}
+      token: ${DATAPREV_API_TOKEN:}
