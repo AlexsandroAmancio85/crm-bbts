@@ -49,6 +49,9 @@ public class QualificacaoIaService {
             RestTemplate restTemplate = new RestTemplate();
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
+            // A partir da migração do Google para chaves "AQ." (Auth keys), a autenticação
+            // deve ser feita via header x-goog-api-key, não mais via query param "?key=".
+            headers.set("x-goog-api-key", API_KEY);
 
             // Estrutura do JSON do Gemini: { "contents": [{ "parts": [{ "text": "prompt" }] }] }
             JsonObject body = new JsonObject();
@@ -65,19 +68,18 @@ public class QualificacaoIaService {
 
             HttpEntity<String> entity = new HttpEntity<>(body.toString(), headers);
             
-            // Faz a chamada HTTP POST para o Google
-            String responseStr = restTemplate.postForObject(GEMINI_URL + API_KEY, entity, String.class);
+            // Faz a chamada HTTP POST para o Google (URL sem a chave, ela vai no header)
+            String responseStr = restTemplate.postForObject(GEMINI_URL, entity, String.class);
 
             // Extrai o texto de dentro da resposta do Google usando o Gson
-            // Extrai o texto de dentro da resposta do Google usando o Gson corrigido
             JsonObject jsonResponse = new Gson().fromJson(responseStr, JsonObject.class);
             String rawIaText = jsonResponse.getAsJsonArray("candidates")
                     .get(0).getAsJsonObject()
                     .getAsJsonObject("content")
                     .getAsJsonArray("parts")
                     .get(0).getAsJsonObject()
-                    .get("text")          // <-- Alterado de getAsString("text") para get("text")
-                    .getAsString();       // <-- E depois converte para String sem passar argumentos
+                    .get("text")
+                    .getAsString();
 
             // Converte o texto plano retornado no seu objeto QualificacaoResponse
             return new Gson().fromJson(rawIaText.trim(), QualificacaoResponse.class);
