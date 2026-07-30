@@ -2,7 +2,7 @@ spring:
   ai:
     google:
       api-key: ${GEMINI_API_KEY}
-      api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+      api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent
   application:
     name: crm-bbts
   profiles:
@@ -26,7 +26,7 @@ spring:
 # Fora do bloco "spring:", sem indentação:
 gemini:
   api-key: ${GEMINI_API_KEY}
-  api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+  api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent
 
 server:
   port: 8080
